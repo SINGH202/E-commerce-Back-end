@@ -11,7 +11,7 @@ dotenv.config();
 
 mongoose
   .connect(
-    process.env.MONGO_URL
+    "mongodb+srv://singh202:Anurag1234@cluster0.bxefk.mongodb.net/ecommerce"
   )
   .then(() => console.log("connected"))
   .catch((err) => console.log(err));

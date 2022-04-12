@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
     email: req.body.email,
     password: cryptoJS.AES.encrypt(
       req.body.password,
-      process.env.PASS_SEC
+      "hjvjkghhvh"
     ).toString(),
   });
 
@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
     // console.log(user.password)
     const hashedPassword = cryptoJS.AES.decrypt(
       user.password,
-      process.env.PASS_SEC
+      "hjvjkghhvh"
     );
 
     const orignalPassword = hashedPassword.toString(cryptoJS.enc.Utf8);
@@ -48,7 +48,7 @@ router.post("/login", async (req, res) => {
         id: user._id,
         isAdmin: user.isAdmin,
       },
-      process.env.JWT_TOKEN,
+      "JHDGVUHIVJGNFVBEVCTRUYKTC7IV",
       {expiresIn:"3d"}
     );
 

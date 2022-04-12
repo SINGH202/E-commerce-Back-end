@@ -5,7 +5,7 @@ const verifyToken = (req, res, next) =>{
     if(authHeader){
         const token = authHeader.split(" ")[1]
 
-        jwt.verify(token, process.env.JWT_TOKEN, (err, user) =>{
+        jwt.verify(token, "JHDGVUHIVJGNFVBEVCTRUYKTC7IV", (err, user) =>{
             if(err) res.status(401).json("Token is not valid")
             req.user = user
             next();
