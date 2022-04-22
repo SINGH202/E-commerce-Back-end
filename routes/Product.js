@@ -47,7 +47,7 @@ router.delete("/:id", verifyTokenAdmin, async (req, res) => {
   }
 });
 
-//Get user
+//Get Product
 router.get("/:id",  async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
