@@ -8,7 +8,7 @@ const {
 
 //CREATE
 
-router.post("/", verifyTokenAdmin, async(req, res ) =>{
+router.post("/", verifyTokenAuth, async(req, res ) =>{
   const newCart = new Cart(req.body)
 
   try {
