@@ -38,4 +38,30 @@ router.get("/", async (req, res) => {
   }
 });
 
+//Delete all todo
+router.delete("/delete", async (req, res) => {
+  try {
+    await Todo.deleteMany();
+    res.status(200).json("Product has been deleted");
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
+//update
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedTodo = await Todo.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedTodo);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
