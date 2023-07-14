@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const todoSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
-    time: { type: Date, required: true, unique: true },
+    date: { type: String, required: true, unique: true },
+    time: { type: String, required: true, unique: true },
     status: { type: Boolean, required: true },
   },
   {
