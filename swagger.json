@@ -1,0 +1,53 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "My API",
+      "description": "This is a simple API that exposes a few endpoints.",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Users",
+        "description": "Endpoints for managing users."
+      },
+      {
+        "name": "Products",
+        "description": "Endpoints for managing products."
+      }
+    ],
+    "paths": {
+      "/users": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Get all users.",
+          "operationId": "getAllUsers",
+          "responses": {
+            "200": {
+              "description": "A list of users."
+            }
+          }
+        }
+      },
+      "/products": {
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "summary": "Get all products.",
+          "operationId": "getAllProducts",
+          "responses": {
+            "200": {
+              "description": "A list of products."
+            }
+          }
+        }
+      }
+    }
+  }
