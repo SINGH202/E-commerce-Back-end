@@ -49,10 +49,14 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-//Delete all todo
-router.delete("/delete", async (req, res) => {
+//Delete done todo
+router.delete("/delete-complete", async (req, res) => {
   try {
-    await Todo.deleteMany({ status: true });
+    await Todo.deleteMany({
+      status: true,
+    })
+      .lean()
+      .exec();
     res.status(200).json("Todo has been deleted");
   } catch (err) {
     res.status(500).json(err.message);
@@ -60,8 +64,9 @@ router.delete("/delete", async (req, res) => {
 });
 
 //update
-router.put("/:id", async (req, res) => {
+router.put("/delete-single/:id", async (req, res) => {
   try {
+    console.log("click");
     const updatedTodo = await Todo.findByIdAndUpdate(
       req.params.id,
       {
