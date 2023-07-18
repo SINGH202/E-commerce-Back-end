@@ -30,7 +30,7 @@ app.use("/api/order", orderRoute);
 app.use("/api/cart/", cartRoute);
 app.use("/api/todo/", todoRoutes);
 
-app.use('/ ', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// app.use('/ ', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Create a route that serves the Swagger UI documentation.
 // app.use('/documentation', swaggerUiExpress.serve(apiDocumentation));

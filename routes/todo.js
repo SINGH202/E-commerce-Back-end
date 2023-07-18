@@ -52,7 +52,7 @@ router.delete("/:id", async (req, res) => {
 //Delete all todo
 router.delete("/delete", async (req, res) => {
   try {
-    await Todo.deleteMany();
+    await Todo.deleteMany({ status: true });
     res.status(200).json("Todo has been deleted");
   } catch (err) {
     res.status(500).json(err.message);
