@@ -31,7 +31,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 app.use("/api/order", orderRoute);
-app.use("/api/cart/", cartRoute);
+app.use("/api/cart", cartRoute);
 app.use("/api/todo", todoRoutes);
 
 // app.use('/ ', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

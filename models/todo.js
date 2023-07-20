@@ -5,6 +5,11 @@ const todoSchema = new mongoose.Schema(
     date: { type: String, required: true, unique: false },
     time: { type: String, required: true, unique: false },
     status: { type: Boolean, required: false },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,
