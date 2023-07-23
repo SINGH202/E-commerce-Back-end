@@ -3,7 +3,7 @@ const Todo = require("../models/todo.js");
 const { verifyTokenAuth } = require("./verifyToken");
 
 //Create todo
-router.post("/", verifyTokenAuth, async (req, res) => {
+router.post("/", async (req, res) => {
   const newTodo = new Todo(req.body);
   try {
     const savedProduct = await newTodo.save();
