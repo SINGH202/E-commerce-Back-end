@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const Todo = require("../models/todo.js");
+const { verifyTokenAuth } = require("./verifyToken");
 
 //Create todo
-router.post("/", async (req, res) => {
+router.post("/", verifyTokenAuth, async (req, res) => {
   const newTodo = new Todo(req.body);
-
   try {
     const savedProduct = await newTodo.save();
     res.status(200).json(savedProduct);
@@ -31,6 +31,18 @@ router.get("/", async (req, res) => {
     } else {
       todo = await Todo.find();
     }
+
+    res.status(200).json(todo);
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
+//Get user todo
+router.get("/find/:id", verifyTokenAuth, async (req, res) => {
+  try {
+    console.log(req.params);
+    const todo = await Todo.find({ user: req.params.id });
 
     res.status(200).json(todo);
   } catch (err) {
